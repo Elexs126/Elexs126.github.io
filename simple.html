@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh" class="is-zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weihao Kong</title>
+
+    <!-- Premium Web Fonts: Crimson Text (Serif) & Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* 经典的高级学术纸张色 (Off-white paper) */
+            --bg-color: #FAF9F6;
+            /* 深邃的主文本色 */
+            --text-main: #2D2D2D;
+            /* 辅助文本色 */
+            --text-muted: #666666;
+            /* 核心点缀色：经典的常青藤深红/绯红色 (Stanford Crimson/Harvard Crimson)，尽显顶尖学术感 */
+            --accent-color: #8C1515;
+            /* 极其克制的浅色边框 */
+            --border-color: #E2DFD8;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-size: 16.5px;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 中英双语控制逻辑：统一使用 .lang-zh / .lang-en class */
+        html:not(.is-zh) .lang-zh {
+            display: none !important;
+        }
+
+        html.is-zh .lang-en {
+            display: none !important;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 100px 30px;
+        }
+
+        /* 排版字体：标题采用带有深厚底蕴的衬线体 */
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Crimson Text', Georgia, serif;
+            color: #111111;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-top: 4rem;
+            margin-bottom: 1.8rem;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        strong {
+            font-weight: 600;
+            color: #111;
+        }
+
+        /* 具有学术感的古典链接样式 */
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(140, 21, 21, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-style: solid;
+            border-bottom-color: var(--accent-color);
+            background-color: rgba(140, 21, 21, 0.04);
+        }
+
+        /* 顶部区块 */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+        }
+
+        .lang-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 4px 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .lang-toggle:hover {
+            color: var(--text-main);
+            border-color: var(--text-main);
+        }
+
+        /* 核心哲学引言区块 */
+        .philosophy {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 20px;
+            margin: 2.5rem 0;
+            font-size: 1.15rem;
+            color: #111;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        /* 列表样式 */
+        .interest-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .interest-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .interest-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* 项目区卡片 (极简纯文字排版，拒绝花哨) */
+        .project-card {
+            margin-bottom: 3rem;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .project-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #111;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .project-context {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-color);
+            border: 1px solid rgba(140, 21, 21, 0.2);
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        /* 留白占位框 */
+        .wip-box {
+            background-color: transparent;
+            border: 1px dashed var(--border-color);
+            padding: 30px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            font-style: italic;
+            font-family: 'Crimson Text', serif;
+        }
+
+        footer {
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 60px 20px;
+            }
+
+            h1 {
+                font-size: 2.3rem;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1 class="lang-zh">孔维豪</h1>
+                <h1 class="lang-en">Weihao Kong</h1>
+
+                <div class="subtitle lang-zh">本科生研究员 / 探索具身智能体的泛化认知模型</div>
+                <div class="subtitle lang-en">Undergraduate Researcher / Exploring Cognitive Models in Embodied Agents
+                </div>
+
+                <div style="font-size: 0.95rem; margin-top: 15px;">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=elexs126@gmail.com" target="_blank">Email</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="https://github.com/elexs126" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-zh">English</span>
+                <span class="lang-en">中文</span>
+            </button>
+        </div>
+
+        <section id="about">
+            <!-- 核心理念区 -->
+            <div class="philosophy lang-zh">
+                “我认为全尺寸人形机器人不仅仅是机械的终点，更是认知模型真正理解物理世界、并与其泛化交互的唯一有效载体。”
+            </div>
+            <div class="philosophy lang-en">
+                “I view full-size humanoid robots not as the endpoint of mechanical engineering, but as the only viable
+                vessel for a generalized cognitive model to naturally interact with physical laws.”
+            </div>
+
+            <!-- 个人简介区 -->
+            <div class="lang-zh">
+                <p>你好。我目前的身份是一名本科生。我对探索<strong>可以在真实物理世界中感知并活动的智慧生命的认知模型</strong>有着极大的热情。在这个愿景下，人形机器人是我用以承载并测试这种智能的躯壳。
+                </p>
+                <p>在我的研究哲学中，我倾向于寻找那些真正能让事情 "Work"、并能引发架构范式转变的理论突破（正如 Transformer、PPO、ResNet
+                    等所展示的力量）。我不热衷于追求脱离物理直觉的纯数学推导证明，也无意于底层硬件的繁琐落地与实体拼接调试。我执着于提出前沿理论架构的 Idea，并证明它们在系统层面是优雅且有效的。</p>
+                <p>我将全部精力投入到了对前沿科研动态的追踪、学术嗅觉的培养以及高阶课程（如
+                    RL、凸优化等）的扎实学习中，以取代传统的绩点刷榜模式。未来，我期望能进入高校或大厂的前沿实验型研究室，作为一名理论架构导向的研究者继续深造。</p>
+            </div>
+
+            <div class="lang-en">
+                <p>Hello. I am currently an undergraduate student with a profound interest in the <strong>cognitive
+                        models of generalized intelligence</strong> that can perceive and act intuitively in the complex
+                    physical world. Under this vision, humanoid robots serve as my preferred embodiment to host and
+                    manifest this evolving cognition.</p>
+                <p>My research philosophy is driven by theoretical and architectural breakthroughs that truly 'work' and
+                    shift paradigms (akin to the impacts of Transformer, PPO, and Residual Networks). I am not inclined
+                    to pursue pure mathematical proofs devoid of physical intuition, nor do I focus on low-level
+                    hardware debugging and system deployment. I am passionate about proposing frontier architectural
+                    ideas and verifying their structural validity within the agent.</p>
+                <p>I dedicate my focus entirely to developing a sharp intuition for frontier research, tracking the
+                    rapid dynamics of the field, and digesting advanced coursework, rather than optimizing for
+                    traditional metrics. My ultimate goal is to continue as an architecture-oriented researcher in
+                    academia or a leading experimental lab.</p>
+            </div>
+        </section>
+
+        <!-- 研究兴趣 -->
+        <section>
+            <h2 class="lang-zh">研究兴趣</h2>
+            <h2 class="lang-en">Research Interests</h2>
+            <ul class="interest-list lang-zh">
+                <li>具身智能与通用认知模型 (Cognitive Models for Embodied AI)</li>
+                <li>可扩展的强化学习理论与架构 (Scalable Reinforcement Learning Architectures)</li>
+                <li>物理世界中的表征学习与策略泛化规律 (Representation Learning & Policy Generalization)</li>
+            </ul>
+            <ul class="interest-list lang-en">
+                <li>Cognitive Models for Embodied AI</li>
+                <li>Scalable Reinforcement Learning Architectures</li>
+                <li>Representation Learning & Policy Generalization in the Physical World</li>
+            </ul>
+        </section>
+
+        <!-- 项目札记 (明确符合您最初提出的"新板块"需求) -->
+        <section>
+            <h2 class="lang-zh">工程与复现札记</h2>
+            <h2 class="lang-en">Projects &amp; Implementations</h2>
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title lang-zh">某某前沿论文核心算法复现与架构重构</h3>
+                    <h3 class="project-title lang-en">Reproduction and Architectural Refactoring of [Paper Name]</h3>
+                    <span class="project-context lang-zh">文献复现</span>
+                    <span class="project-context lang-en">Paper Reproduction</span>
+                </div>
+
+                <p class="project-desc lang-zh">
+                    出于对该论文理论架构的好奇，提取了其核心网络结构并在连续控制任务中进行验证。项目中刻意移除了繁杂而无理的工程 trial & error (如 Reward Shaping
+                    Trick)，主要验证了该架构在纯稀疏奖励下的理论有效性。
+                </p>
+                <p class="project-desc lang-en">
+                    Driven by curiosity about the paper's theoretical architecture, I extracted its core network
+                    structure and validated it in continuous control tasks. I deliberately removed ad-hoc engineering
+                    tricks to solely test its theoretical validity under sparse rewards.
+                </p>
+
+                <a href="https://github.com/elexs126/repo1" class="project-link" target="_blank">
+                    <span class="lang-zh">查看 GitHub 仓库 →</span>
+                    <span class="lang-en">View GitHub Repository →</span>
+                </a>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title lang-zh">稀疏奖励环境下的类注意力机制泛化探索</h3>
+                    <h3 class="project-title lang-en">Attention-based Policy Generalization in Continuous Control</h3>
+                    <span class="project-context lang-zh">前沿课程设计</span>
+                    <span class="project-context lang-en">Course Project</span>
+                </div>
+
+                <p class="project-desc lang-zh">
+                    这是一项高阶实验性探索项目。在完成基础要求后，我尝试将一种类 Transformer 的跨序列注意力机制优雅地引入强化学习 PPO 范式中，重点观察并记录了策略模型在未见物理环境中的泛化表现。
+                </p>
+                <p class="project-desc lang-en">
+                    An advanced experimental project probing how Transformer-like cross-sequence attention can be
+                    elegantly integrated into traditional RL paradigms. Investigated policy generalization behaviors
+                    across unseen physical test environments.
+                </p>
+
+                <a href="https://github.com/elexs126/repo2" class="project-link" target="_blank">
+                    <span class="lang-zh">查看 GitHub 仓库 →</span>
+                    <span class="lang-en">View GitHub Repository →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 论文与报告合并 (留白占位) -->
+        <section>
+            <h2 class="lang-zh">发表与学术交流</h2>
+            <h2 class="lang-en">Publications &amp; Talks</h2>
+            <div class="wip-box">
+                <div class="lang-zh">
+                    目前我正在探索和推进几个前沿方向的 Idea，相关的理论推演与论文撰写正在进行中。<br>未来的论文预印本与交流 Materials 将在此更新。
+                </div>
+                <div class="lang-en">
+                    I am actively developing several exciting architectural ideas. <br>Publications and related
+                    presentation materials will be updated here in the future.
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div>&copy; 2025 Weihao Kong</div>
+    </footer>
+
+    <script>
+        function toggleLanguage() {
+            const html = document.documentElement;
+            html.classList.toggle('is-zh');
+        }
+    </script>
+
+</body>
+
+</html>
