@@ -172,6 +172,100 @@
             margin-bottom: 20px;
         }
 
+        /* ===== 个人研究陈述与简介卡片化排版 ===== */
+        .research-statement {
+            margin: 25px 0 30px 0;
+        }
+
+        .statement-lead {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #2d3748;
+            background: #ffffff;
+            border-left: 4px solid #2b6cb0;
+            padding: 18px 22px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+            border-top: 1px solid #f0f2f5;
+            border-right: 1px solid #f0f2f5;
+            border-bottom: 1px solid #f0f2f5;
+            margin-bottom: 20px;
+        }
+
+        .statement-lead strong {
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        .statement-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .statement-card {
+            background: #ffffff;
+            border: 1px solid #e8ecf1;
+            border-radius: 8px;
+            padding: 20px 22px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .statement-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+            transform: translateY(-1px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #edf2f7;
+        }
+
+        .card-tag {
+            font-family: 'Inter', monospace, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #2b6cb0;
+        }
+
+        .card-icon {
+            font-size: 0.85rem;
+            color: #a0aec0;
+        }
+
+        .statement-card h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.05rem;
+            font-family: 'Merriweather', serif;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        .statement-card p {
+            margin: 0;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: #4a5568;
+            text-align: justify;
+        }
+
+        @media (max-width: 650px) {
+            .statement-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
         .quote {
             background-color: #f4f5f6;
             border-left: 4px solid #2b6cb0;
@@ -391,23 +485,53 @@
                     致力于人形机器人的<b>全身控制 (Whole-body Control)</b> 与 <b>世界模型 (World Models)</b> 研究。
                 </p>
 
-                <div class="quote en">
-                    "I view the humanoid body not merely as a mechanical assembly, but as the only viable vessel for a
-                    cognitive model to truly interact with and understand the physical laws of our world."
-                </div>
-                <div class="quote zh">
-                    "我认为人形躯体不仅仅是特定的机械结构，而是认知模型真正理解物理世界、并与其交互的唯一有效载体。"
+                <!-- 个人研究陈述与简介（结构化卡片排版） -->
+                <div class="research-statement zh">
+                    <div class="statement-lead">
+                        我的研究兴趣集中于智能系统的<strong>学习、表征与决策机制</strong>，尤其关注能够在真实物理环境中感知并行动的智能体。我希望理解，智能体如何通过与环境的持续交互形成对世界的认识，并将经验转化为可泛化的推理与行动能力。<strong>具身智能</strong>为探索这些问题提供了重要场景，<strong>人形机器人</strong>则是其中承载和检验认知架构的核心物理载体。
+                    </div>
+                    <div class="statement-grid">
+                        <div class="statement-card">
+                            <div class="card-header">
+                                <span class="card-tag">研究取向 · 抽象层次</span>
+                                <i class="fa-solid fa-compass-drafting card-icon"></i>
+                            </div>
+                            <h4>理论与机制导向</h4>
+                            <p>关注能够解释系统行为、揭示现有方法局限并推动架构改进的理论与机制。有效的解释需要保留决定行为差异的关键结构，并在数学表述、学习算法与系统能力之间建立明确映射。理论的价值既体现在形式上的清晰与一致，更体现在它能否带来新的预测、设计原则和可检验的改进。</p>
+                        </div>
+                        <div class="statement-card">
+                            <div class="card-header">
+                                <span class="card-tag">研究方法 · 演进愿景</span>
+                                <i class="fa-solid fa-arrows-spin card-icon"></i>
+                            </div>
+                            <h4>架构假设与系统闭环</h4>
+                            <p>倾向于围绕关键问题提出架构假设，通过必要的理论分析与系统实验检验其成立条件和适用边界。长期而言，探索支撑智能体持续学习、适应环境与自主行动的通用机制，在理论理解与智能系统工程设计之间建立更紧密的联系。</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="zh">
-                    <p>我的研究兴趣集中于智能系统的学习、表征与决策机制，尤其关注能够在真实物理环境中感知并行动的智能体。我希望理解，智能体如何通过与环境的持续交互形成对世界的认识，并将经验转化为可泛化的推理与行动能力。具身智能为探索这些问题提供了重要场景，人形机器人则是其中一种承载和检验认知架构的载体。</p>
-                    <p>在研究取向上，我关注能够解释系统行为、揭示现有方法局限，并推动架构改进的理论与机制。我重视问题的抽象层次：有效的解释需要保留决定行为差异的关键结构，并明确数学表述、学习算法与系统能力之间的联系。这也意味着，理论的价值既体现在形式上的清晰与一致，也体现在它能否带来新的预测、设计原则和可检验的改进。</p>
-                    <p>我倾向于围绕关键问题提出架构假设，通过必要的理论分析与系统实验检验其成立条件和适用边界。长期而言，我希望探索支撑智能体持续学习、适应环境与自主行动的通用机制，并在理论理解与智能系统设计之间建立更紧密的联系。</p>
-                </div>
-                <div class="en">
-                    <p>My research focuses on the learning, representation, and decision-making mechanisms of intelligent systems, with a particular emphasis on agents that perceive and act in physical environments. I seek to understand how agents construct representations of their environment through continuous interaction and translate experience into generalizable reasoning and action capabilities. Embodied AI provides an essential foundation for exploring these questions, with humanoid robots serving as a viable testbed for embodying and evaluating cognitive architectures.</p>
-                    <p>In terms of research approach, I prioritize theories and mechanisms that explain system behavior, reveal the limitations of existing methodologies, and drive architectural improvements. I place great value on the appropriate level of abstraction: effective explanations must retain the critical structures governing behavioral divergence while formalizing the connections between mathematical formulations, learning algorithms, and system capabilities. Consequently, the value of theory lies not only in formal clarity and consistency, but in its ability to yield novel predictions, actionable design principles, and verifiable improvements.</p>
-                    <p>I aim to formulate architectural hypotheses around core challenges, validating their operating assumptions and boundaries through theoretical analysis and systematic experimentation. Long term, I aspire to explore universal mechanisms supporting lifelong learning, environmental adaptation, and autonomous action in intelligent agents, bridging the gap between theoretical insight and intelligent system design.</p>
+                <div class="research-statement en">
+                    <div class="statement-lead">
+                        My research focuses on the <strong>learning, representation, and decision-making mechanisms</strong> of intelligent systems, with a particular emphasis on agents that perceive and act in physical environments. I seek to understand how agents construct world models through continuous interaction and translate experience into generalizable reasoning and action capabilities—where <strong>Embodied AI</strong> serves as the foundational scenario and <strong>humanoid robots</strong> as the primary physical vessel for evaluating cognitive architectures.
+                    </div>
+                    <div class="statement-grid">
+                        <div class="statement-card">
+                            <div class="card-header">
+                                <span class="card-tag">Perspective · Abstraction</span>
+                                <i class="fa-solid fa-compass-drafting card-icon"></i>
+                            </div>
+                            <h4>Theory &amp; Mechanism-Driven</h4>
+                            <p>I prioritize theories that explain system behaviors, reveal the limitations of current methodologies, and drive principled architectural improvements. Effective explanations must preserve critical structures governing behavioral divergence while formalizing the bridge between mathematical formulations, learning algorithms, and system capabilities—delivering formal clarity alongside verifiable predictions.</p>
+                        </div>
+                        <div class="statement-card">
+                            <div class="card-header">
+                                <span class="card-tag">Methodology · Vision</span>
+                                <i class="fa-solid fa-arrows-spin card-icon"></i>
+                            </div>
+                            <h4>Hypothesis &amp; Universal Adaptation</h4>
+                            <p>I formulate architectural hypotheses around core challenges, probing their validity conditions and operational bounds through theoretical analysis and systematic experimentation. Long term, I aim to uncover universal mechanisms supporting lifelong learning and autonomous adaptation, bridging the gap between theoretical insight and embodied system design.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="tags">
@@ -599,10 +723,10 @@
     </div>
 
     <script>
-        // 从 localStorage 读取上次的语言偏好
+        // 从 localStorage 读取上次的语言偏好，或自动匹配浏览器语言
         (function () {
             const saved = localStorage.getItem('cv-lang');
-            if (saved === 'zh') {
+            if (saved === 'zh' || (!saved && navigator.language && navigator.language.startsWith('zh'))) {
                 document.documentElement.classList.replace('is-en', 'is-zh');
             }
         })();
