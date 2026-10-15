@@ -507,4 +507,386 @@
             flex-wrap: wrap;
             gap: 12px;
             color: var(--text-muted);
-            font-size: 0
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                padding: 40px 20px 60px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            nav {
+                gap: 14px;
+                margin-right: 0;
+            }
+
+            .statement-grid,
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- 顶部导航栏 -->
+        <header>
+            <a href="index.html" class="logo">
+                <img src="avatar.jpg" alt="孔维豪 (Kong Weihao)" class="avatar"
+                    onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'44\' height=\'44\'><rect width=\'44\' height=\'44\' fill=\'%23F4F4F0\'/><text x=\'50%25\' y=\'52%25\' font-family=\'serif\' font-size=\'16\' font-weight=\'600\' fill=\'%231E3A5F\' dominant-baseline=\'middle\' text-anchor=\'middle\'>孔</text></svg>'">
+                <span class="en">Kong Weihao</span>
+                <span class="zh">孔维豪</span>
+            </a>
+
+            <div class="nav-controls">
+                <nav>
+                    <a href="#about"><span class="en">About</span><span class="zh">关于</span></a>
+                    <a href="#projects"><span class="en">Projects</span><span class="zh">项目</span></a>
+                    <a href="#notes"><span class="en">Notes</span><span class="zh">笔记</span></a>
+                    <a href="#knowledge"><span class="en">Coursework</span><span class="zh">课程储备</span></a>
+                </nav>
+
+                <div style="display: flex; gap: 8px;">
+                    <button class="ctrl-btn lang-btn" onclick="toggleLanguage()" aria-label="Switch Language">
+                        <span class="en">中文</span>
+                        <span class="zh">EN</span>
+                    </button>
+
+                    <a class="ctrl-btn vision-btn" href="simple.html"
+                        title="A contemplative essay on my research philosophy">
+                        <span class="en">Personal Vision →</span>
+                        <span class="zh">个人志趣 →</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主视觉与个人简介 -->
+        <main>
+            <section id="about" class="hero" style="margin-top: 0;">
+                <h1 class="en">Exploring the Cognitive Architecture of Embodied Agents.</h1>
+                <h1 class="zh">探索具身智能体的认知架构</h1>
+
+                <p class="subtitle en">
+                    Undergraduate Researcher @ Xi'an University of Architecture and Technology (XAUAT).<br>
+                    Focusing on <b>Whole-Body Control</b> and <b>World Models</b> for Full-Size Humanoid Robots.
+                </p>
+                <p class="subtitle zh">
+                    本科生 @ 西安建筑科技大学 (XAUAT)。<br>
+                    致力于全尺寸人形机器人的<b>全身控制 (Whole-Body Control)</b> 与<b>世界模型 (World Models)</b> 研究。
+                </p>
+
+                <!-- 个人研究陈述与简介（中文） -->
+                <div class="research-statement zh">
+                    <div class="statement-lead">
+                        我的研究兴趣集中于智能系统的<strong>学习、表征与决策机制</strong>，尤其关注能够在真实物理环境中感知并行动的智能体。我希望理解，智能体如何通过与环境的持续交互形成对世界的认识，并将经验转化为可泛化的推理与行动能力。<strong>具身智能</strong>为探索这些问题提供了重要场景，<strong>人形机器人</strong>则是其中承载和检验认知架构的核心物理载体。
+                    </div>
+                    <div class="statement-grid">
+                        <div class="statement-card">
+                            <div class="card-header">
+                                <span class="card-tag">研究取向 · 抽象层次</span>
+                                <span class="card-index">01</span>
+                            </div>
+                            <h4>理论与机制导向</h4>
+                            <p>关注能够解释系统行为、揭示现有方法局限并推动架构改进的理论与机制。有效的解释需要保留决定行为差异的关键结构，并在数学表述、学习算法与系统能力之间建立明确映射。理论的价值既体现在形式上的清晰与一致，更体现在它能否带来新的预测、设计原则和可检验的改进。</p>
+                        </div>
+                        <div class="statement-card">
+                            <div class="card-header">
+                                <span class="card-tag">研究方法 · 演进愿景</span>
+                                <span class="card-index">02</span>
+                            </div>
+                            <h4>架构假设与系统闭环</h4>
+                            <p>倾向于围绕关键问题提出架构假设，通过必要的理论分析与系统实验检验其成立条件和适用边界。长期而言，探索支撑智能体持续学习、适应环境与自主行动的通用机制，在理论理解与智能系统工程设计之间建立更紧密的联系。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 个人研究陈述与简介（英文） -->
+                <div class="research-statement en">
+                    <div class="statement-lead">
+                        My research focuses on the <strong>learning, representation, and decision-making mechanisms</strong> of intelligent systems, with a particular emphasis on agents that perceive and act in physical environments. I seek to understand how agents construct world models through continuous interaction and translate experience into generalizable reasoning and action capabilities—where <strong>Embodied AI</strong> serves as the foundational scenario and <strong>humanoid robots</strong> as the primary physical vessel for evaluating cognitive architectures.
+                    </div>
+                    <div class="statement-grid">
+                        <div class="statement-card">
+                            <div class="card-header">
+                                <span class="card-tag">Perspective · Abstraction</span>
+                                <span class="card-index">01</span>
+                            </div>
+                            <h4>Theory &amp; Mechanism-Driven</h4>
+                            <p>I prioritize theories that explain system behaviors, reveal the limitations of current methodologies, and drive principled architectural improvements. Effective explanations must preserve critical structures governing behavioral divergence while formalizing the bridge between mathematical formulations, learning algorithms, and system capabilities—delivering formal clarity alongside verifiable predictions.</p>
+                        </div>
+                        <div class="statement-card">
+                            <div class="card-header">
+                                <span class="card-tag">Methodology · Vision</span>
+                                <span class="card-index">02</span>
+                            </div>
+                            <h4>Hypothesis &amp; Universal Adaptation</h4>
+                            <p>I formulate architectural hypotheses around core challenges, probing their validity conditions and operational bounds through theoretical analysis and systematic experimentation. Long term, I aim to uncover universal mechanisms supporting lifelong learning and autonomous adaptation, bridging the gap between theoretical insight and embodied system design.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meta-footer">
+                    <div class="tags">
+                        <span class="tag-item">
+                            <span class="en">#Embodied_AI</span>
+                            <span class="zh">#具身智能</span>
+                        </span>
+                        <span class="tag-item">
+                            <span class="en">#Cognitive_Modeling</span>
+                            <span class="zh">#认知模型</span>
+                        </span>
+                        <span class="tag-item">
+                            <span class="en">#RSI</span>
+                            <span class="zh">#递归自我改进</span>
+                        </span>
+                        <span class="tag-item">
+                            <span class="en">#Causal_Inference</span>
+                            <span class="zh">#因果推断</span>
+                        </span>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="mailto:elexs126@gmail.com">
+                            <i class="fa-regular fa-envelope"></i> Email
+                        </a>
+                        <a href="https://github.com/elexs126" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 精选项目与代码复现区块 -->
+            <section id="projects">
+                <div class="section-header">
+                    <h2 class="en">Selected Projects &amp; Implementations</h2>
+                    <h2 class="zh">精选项目与算法复现</h2>
+                </div>
+
+                <div class="entry-list">
+                    <!-- 项目1 -->
+                    <div class="project-item">
+                        <div class="project-top">
+                            <div class="project-title en">Unified Whole-Body Control and World Model Planning for Dynamic Locomotion</div>
+                            <div class="project-title zh">面向动态行走的统一全身控制与世界模型规划架构</div>
+                            <span class="badge">Work in Progress</span>
+                        </div>
+                        <div class="project-meta">
+                            <span class="en">Independent Research &amp; Prototyping</span>
+                            <span class="zh">独立研究与原型验证</span>
+                        </div>
+                        <div class="project-desc en">
+                            Proposed a hierarchical framework where a Transformer-based world model generates latent state trajectories, which are subsequently tracked by a convex MPC controller. Currently building the simulation pipeline to enable the humanoid agent to evaluate physical consequences prior to execution.
+                        </div>
+                        <div class="project-desc zh">
+                            提出一种分层控制框架：利用基于 Transformer 的世界模型生成潜在状态轨迹，并通过凸优化 MPC 控制器精确跟踪，使人形机器人能够在迈步前推演物理交互后果。目前正在搭建仿真验证管线。
+                        </div>
+                        <div class="action-links">
+                            <a href="https://github.com/elexs126" target="_blank" rel="noopener">Architecture Draft</a>
+                            <a href="https://github.com/elexs126" target="_blank" rel="noopener">Simulation Pipeline</a>
+                        </div>
+                    </div>
+
+                    <!-- 项目2 -->
+                    <div class="project-item">
+                        <div class="project-top">
+                            <div class="project-title en">Reproducing 'Learning to Walk' via Deep Reinforcement Learning</div>
+                            <div class="project-title zh">基于深度强化学习的“Learning to Walk”算法复现与理论分析</div>
+                            <span class="badge badge-neutral">Technical Report</span>
+                        </div>
+                        <div class="project-meta">
+                            <span class="en">Advanced Course Project · PyTorch &amp; MuJoCo</span>
+                            <span class="zh">高阶课程设计 · PyTorch &amp; MuJoCo</span>
+                        </div>
+                        <div class="project-desc en">
+                            Implemented the PPO algorithm from scratch in PyTorch to train a humanoid agent in MuJoCo. Deliberately stripped away ad-hoc engineering tricks to isolate and analyze the theoretical impact of reward structure on gait symmetry and energetic efficiency.
+                        </div>
+                        <div class="project-desc zh">
+                            使用 PyTorch 从零实现 PPO 算法，并在 MuJoCo 环境中训练人形智能体。刻意剥离繁杂的工程化 Trick，纯粹从机制层面分析奖励函数结构对步态对称性与能量效率的理论影响。
+                        </div>
+                        <div class="action-links">
+                            <a href="https://github.com/elexs126" target="_blank" rel="noopener">PDF Report</a>
+                            <a href="https://github.com/elexs126" target="_blank" rel="noopener">GitHub Code</a>
+                        </div>
+                    </div>
+
+                    <!-- 项目3 -->
+                    <div class="project-item">
+                        <div class="project-top">
+                            <div class="project-title en">Attention-Based Policy Generalization in Continuous Control</div>
+                            <div class="project-title zh">稀疏奖励环境下的注意力机制策略泛化探索</div>
+                            <span class="badge badge-neutral">Code Repository</span>
+                        </div>
+                        <div class="project-meta">
+                            <span class="en">Independent Implementation</span>
+                            <span class="zh">独立实验性项目</span>
+                        </div>
+                        <div class="project-desc en">
+                            Probed how Transformer-style cross-sequence attention can be integrated into on-policy RL paradigms, evaluating zero-shot policy generalization across unseen physical dynamics.
+                        </div>
+                        <div class="project-desc zh">
+                            探索如何将类 Transformer 的跨序列注意力机制引入传统在线强化学习范式，重点考察策略模型在未见物理动力学环境下的零样本泛化行为。
+                        </div>
+                        <div class="action-links">
+                            <a href="https://github.com/elexs126" target="_blank" rel="noopener">GitHub Code</a>
+                            <a href="https://github.com/elexs126" target="_blank" rel="noopener">Tech Notes</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 理论笔记与分享区块 -->
+            <section id="notes">
+                <div class="section-header">
+                    <h2 class="en">Technical Notes &amp; Seminar Talks</h2>
+                    <h2 class="zh">理论笔记与学术分享</h2>
+                </div>
+                <p class="section-subtitle en">Documenting mathematical derivations, theoretical proofs, and literature critiques.</p>
+                <p class="section-subtitle zh">记录数学推导、理论证明过程与核心文献评述。</p>
+
+                <div class="entry-list">
+                    <div class="project-item">
+                        <div class="project-top">
+                            <div class="project-title en">The Geometry of Control: Lie Algebra in Robotics</div>
+                            <div class="project-title zh">控制的几何学：机器人学中的李群与李代数</div>
+                            <span class="badge badge-neutral">Oct 2024</span>
+                        </div>
+                        <div class="project-meta">
+                            <span class="en">Seminar Talk @ Robotics Group</span>
+                            <span class="zh">机器人课题组研讨会报告</span>
+                        </div>
+                        <div class="project-desc en">
+                            Systematic exposition of SO(3) and SE(3) manifolds, tangent spaces, and their direct applications in rigid-body dynamics and whole-body kinematics.
+                        </div>
+                        <div class="project-desc zh">
+                            系统梳理 SO(3) 与 SE(3) 流形、切空间映射及其在刚体动力学与全身运动学建模中的直接应用。
+                        </div>
+                        <div class="action-links">
+                            <a href="https://github.com/elexs126" target="_blank" rel="noopener">Slides</a>
+                            <a href="https://github.com/elexs126" target="_blank" rel="noopener">Derivation Notes</a>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-top">
+                            <div class="project-title en">Derivations on Policy Gradient and Trust Region Methods</div>
+                            <div class="project-title zh">策略梯度与置信域方法的完整数学推导</div>
+                            <span class="badge badge-neutral">Dec 2024</span>
+                        </div>
+                        <div class="project-meta">
+                            <span class="en">Self-Study Monograph · Advanced RL</span>
+                            <span class="zh">高阶强化学习理论手稿</span>
+                        </div>
+                        <div class="project-desc en">
+                            Step-by-step mathematical proofs from vanilla REINFORCE and Natural Policy Gradient to monotonic improvement guarantees in TRPO and PPO.
+                        </div>
+                        <div class="project-desc zh">
+                            从基础 REINFORCE、自然策略梯度到 TRPO 单调改进保证与 PPO 裁剪目标的完整数学证明推导，附带注释的 PyTorch 实现对照。
+                        </div>
+                        <div class="action-links">
+                            <a href="https://github.com/elexs126" target="_blank" rel="noopener">Math Notes (PDF)</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 知识储备与课程体系区块 -->
+            <section id="knowledge">
+                <div class="section-header">
+                    <h2 class="en">Foundations &amp; Advanced Coursework</h2>
+                    <h2 class="zh">理论基础与核心课程储备</h2>
+                </div>
+
+                <div class="course-grid">
+                    <div class="course-item">
+                        <span class="course-name">Underactuated Robotics</span>
+                        <span class="course-code">MIT 6.8210</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-name">Deep Reinforcement Learning</span>
+                        <span class="course-code">UCB CS285</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-name">Introduction to Robot Learning</span>
+                        <span class="course-code">CMU 16-831</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-name en">Convex Optimization</span>
+                        <span class="course-name zh">凸优化 (Convex Optimization)</span>
+                        <span class="course-code">Stanford EE364a</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-name en">Deep Learning &amp; Generative Models</span>
+                        <span class="course-name zh">深度学习与生成式模型</span>
+                        <span class="course-code">Theory &amp; Flow</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-name en">Linear Algebra &amp; Manifold Calculus</span>
+                        <span class="course-name zh">高等代数学与流形微积分</span>
+                        <span class="course-code">Foundations</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>&copy; 2026 孔维豪 (Kong Weihao).</div>
+            <div>
+                <span class="en">Designed for formal clarity and structural rigor.</span>
+                <span class="zh">行而不辍，履践致远。</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        (function () {
+            const saved = localStorage.getItem('cv-lang');
+            const html = document.documentElement;
+            if (saved === 'zh' || (!saved && navigator.language && navigator.language.startsWith('zh'))) {
+                html.classList.remove('is-en');
+                html.classList.add('is-zh');
+                html.setAttribute('lang', 'zh');
+            } else {
+                html.classList.remove('is-zh');
+                html.classList.add('is-en');
+                html.setAttribute('lang', 'en');
+            }
+        })();
+
+        function toggleLanguage() {
+            const html = document.documentElement;
+            if (html.classList.contains('is-en')) {
+                html.classList.replace('is-en', 'is-zh');
+                html.setAttribute('lang', 'zh');
+                localStorage.setItem('cv-lang', 'zh');
+            } else {
+                html.classList.replace('is-zh', 'is-en');
+                html.setAttribute('lang', 'en');
+                localStorage.setItem('cv-lang', 'en');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
