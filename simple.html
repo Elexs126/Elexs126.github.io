@@ -1,478 +1,700 @@
 <!DOCTYPE html>
-<html lang="zh" class="is-zh">
+<html lang="zh-CN" class="is-zh">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人志趣 | 孔维豪 (Kong Weihao)</title>
+    <meta name="description" content="孔维豪 (Kong Weihao) — Personal research vision on embodied intelligence and cognitive architectures.">
+    <meta name="author" content="孔维豪, Kong Weihao">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2324456F'/%3E%3Ctext x='50%25' y='54%25' font-family='serif' font-size='36' font-weight='700' fill='%23fff' dominant-baseline='middle' text-anchor='middle'%3E孔%3C/text%3E%3C/svg%3E">
+
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.classList.add('js');
+            var l = localStorage.getItem('cv-lang');
+            var zh = l ? l === 'zh' : (navigator.language || '').toLowerCase().indexOf('zh') === 0;
+            d.classList.remove('is-en', 'is-zh');
+            d.classList.add(zh ? 'is-zh' : 'is-en');
+            d.lang = zh ? 'zh-CN' : 'en';
+            var t = localStorage.getItem('cv-theme') ||
+                (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            d.setAttribute('data-theme', t);
+        })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --bg-color: #FAF8F5;
-            --text-main: #222220;
-            --text-secondary: #3F3F3C;
-            --text-muted: #6E6D68;
-            --accent-color: #8C1515;
-            --accent-soft: rgba(140, 21, 21, 0.05);
-            --border-color: #E2DFD7;
-            --font-serif: 'Crimson Pro', 'Noto Serif SC', 'Songti SC', 'Source Han Serif SC', Georgia, serif;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', sans-serif;
-            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+            --bg: #FAF8F3;
+            --bg-elev: #FFFFFF;
+            --bg-sunk: #F2EFE7;
+            --ink: #1A1A1D;
+            --ink-2: #44454C;
+            --ink-3: #7C7D84;
+            --line: #E7E3D9;
+            --line-2: #D8D3C6;
+            --accent: #24456F;
+            --accent-2: #4470AE;
+            --accent-soft: rgba(36, 69, 111, 0.07);
+            --accent-ring: rgba(36, 69, 111, 0.22);
+            --warm: #B8622F;
+            --header-bg: rgba(250, 248, 243, 0.75);
+            --shadow-sm: 0 1px 2px rgba(20, 22, 30, 0.04);
+            --shadow-md: 0 18px 40px -20px rgba(22, 36, 66, 0.22), 0 2px 6px rgba(22, 36, 66, 0.04);
+            --font-serif: 'Newsreader', 'Noto Serif SC', 'Songti SC', 'Source Han Serif SC', Georgia, serif;
+            --font-serif-zh: 'Noto Serif SC', 'Songti SC', 'Source Han Serif SC', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+            --ease: cubic-bezier(.2, .7, .2, 1);
         }
 
-        * {
-            box-sizing: border-box;
+        [data-theme="dark"] {
+            --bg: #0F1013;
+            --bg-elev: #16181D;
+            --bg-sunk: #1B1D23;
+            --ink: #ECECEE;
+            --ink-2: #B6B8BF;
+            --ink-3: #7E818B;
+            --line: #24262D;
+            --line-2: #31343D;
+            --accent: #93B6EA;
+            --accent-2: #C2D6F5;
+            --accent-soft: rgba(147, 182, 234, 0.09);
+            --accent-ring: rgba(147, 182, 234, 0.28);
+            --warm: #E8A275;
+            --header-bg: rgba(15, 16, 19, 0.72);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 18px 40px -18px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.25);
         }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: var(--font-sans);
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-size: 16.5px;
-            line-height: 1.85;
             margin: 0;
-            padding: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--font-serif);
+            font-size: 19px;
+            line-height: 1.8;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            transition: background-color .35s ease, color .35s ease;
         }
 
-        /* 统一双语控制逻辑 */
-        html.is-en .lang-zh {
-            display: none !important;
+        html.is-zh body { font-family: var(--font-serif-zh); font-size: 17px; line-height: 2; }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: radial-gradient(60rem 30rem at 50% -12%, var(--accent-soft), transparent 70%);
         }
 
-        html.is-zh .lang-en {
-            display: none !important;
+        ::selection { background: var(--accent); color: var(--bg); }
+
+        html.is-en .zh { display: none !important; }
+        html.is-zh .en { display: none !important; }
+
+        a { color: inherit; }
+
+        /* ===== 阅读进度条 ===== */
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            transform-origin: left;
+            transform: scaleX(0);
+            background: linear-gradient(to right, var(--accent), var(--accent-2));
+            z-index: 60;
         }
 
-        .container {
+        /* ===== 顶栏 ===== */
+        .top-bar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--header-bg);
+            -webkit-backdrop-filter: saturate(160%) blur(14px);
+            backdrop-filter: saturate(160%) blur(14px);
+            border-bottom: 1px solid transparent;
+            transition: border-color .3s ease;
+        }
+
+        .top-bar.scrolled { border-bottom-color: var(--line); }
+
+        .top-inner {
             max-width: 720px;
             margin: 0 auto;
-            padding: 64px 28px 96px;
-        }
-
-        h1, h2, h3, .serif {
-            font-family: var(--font-serif);
-            color: #111111;
-        }
-
-        /* 顶部返回与语言栏 */
-        .top-bar {
+            padding: 0 28px;
+            height: 60px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding-bottom: 20px;
-            margin-bottom: 48px;
-            border-bottom: 1px solid var(--border-color);
+            justify-content: space-between;
+            font-family: var(--font-sans);
         }
 
         .back-link {
-            font-size: 0.88rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            border-bottom: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-        }
-
-        .back-link:hover {
-            color: var(--accent-color);
-            background: transparent;
-        }
-
-        .lang-toggle {
-            background: none;
-            border: 1px solid var(--border-color);
-            padding: 4px 12px;
-            font-family: var(--font-sans);
-            font-size: 0.8rem;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 0.82rem;
             font-weight: 500;
-            color: var(--text-muted);
+            color: var(--ink-3);
+            transition: color .2s ease;
+        }
+
+        .back-link i { font-size: 0.72rem; transition: transform .2s var(--ease); }
+        .back-link:hover { color: var(--accent); }
+        .back-link:hover i { transform: translateX(-3px); }
+
+        .controls { display: flex; gap: 6px; }
+
+        .icon-btn {
+            display: inline-grid;
+            place-items: center;
+            min-width: 34px;
+            height: 34px;
+            padding: 0 10px;
+            border-radius: 999px;
+            border: 1px solid var(--line-2);
+            background: var(--bg-elev);
+            color: var(--ink-2);
+            font: 500 0.78rem var(--font-sans);
             cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.15s ease;
+            transition: all .2s var(--ease);
         }
 
-        .lang-toggle:hover {
-            color: var(--text-main);
-            border-color: var(--text-main);
+        .icon-btn:hover { color: var(--accent); border-color: var(--accent-ring); transform: translateY(-1px); }
+
+        .theme-btn .fa-sun { display: none; }
+        [data-theme="dark"] .theme-btn .fa-sun { display: inline; }
+        [data-theme="dark"] .theme-btn .fa-moon { display: none; }
+
+        /* ===== 正文容器 ===== */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 28px;
         }
 
-        /* 标题区块 */
-        .header {
-            margin-bottom: 2.5rem;
+        /* ===== 标题区 ===== */
+        .masthead {
+            text-align: center;
+            padding: 96px 0 56px;
         }
 
-        h1 {
-            font-size: 2.6rem;
+        .kicker {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 22px;
+        }
+
+        .masthead h1 {
+            font-size: clamp(2.8rem, 8vw, 4.2rem);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin: 0 0 18px;
+        }
+
+        html.is-zh .masthead h1 {
+            font-family: var(--font-serif-zh);
             font-weight: 600;
-            margin: 0;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
+            letter-spacing: 0.18em;
+            padding-left: 0.18em;
         }
 
         .subtitle {
-            font-family: var(--font-serif);
-            font-size: 1.22rem;
             font-style: italic;
-            color: var(--text-muted);
-            margin-top: 8px;
-            margin-bottom: 18px;
+            font-size: 1.15rem;
+            color: var(--ink-2);
+            margin-bottom: 26px;
         }
+
+        html.is-zh .subtitle { font-style: normal; font-size: 1rem; letter-spacing: 0.04em; }
 
         .contact-inline {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            display: inline-flex;
+            gap: 8px;
+            font-family: var(--font-sans);
         }
 
-        h2 {
-            font-size: 1.55rem;
-            font-weight: 600;
-            margin-top: 3.8rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
+        .contact-inline a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--line-2);
+            background: var(--bg-elev);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--ink-2);
+            transition: all .2s var(--ease);
         }
 
-        p {
-            margin-bottom: 1.4rem;
-            color: var(--text-secondary);
+        .contact-inline a:hover { color: var(--accent); border-color: var(--accent-ring); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            color: var(--line-2);
+            margin: 0 auto;
+            max-width: 220px;
+        }
+
+        .ornament::before, .ornament::after { content: ""; flex: 1; height: 1px; background: currentColor; }
+        .ornament span { font-size: 0.8rem; color: var(--accent); opacity: .7; letter-spacing: .4em; padding-left: .4em; }
+
+        /* ===== 核心理念引言 ===== */
+        .philosophy {
+            position: relative;
+            margin: 64px 0 56px;
+            padding: 0 12px;
+            text-align: center;
+            font-size: clamp(1.4rem, 3.4vw, 1.75rem);
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+            text-wrap: balance;
+        }
+
+        html.is-zh .philosophy {
+            font-style: normal;
+            font-weight: 500;
+            font-size: clamp(1.2rem, 3vw, 1.45rem);
+            line-height: 1.9;
+            letter-spacing: 0.03em;
+        }
+
+        .philosophy::before {
+            content: "\201C";
+            display: block;
+            font-family: var(--font-serif);
+            font-style: normal;
+            font-size: 5rem;
+            line-height: .6;
+            margin-bottom: 18px;
+            color: var(--accent);
+            opacity: .35;
+        }
+
+        /* ===== 散文段落 ===== */
+        .prose p {
+            margin: 0 0 1.4em;
+            color: var(--ink-2);
             hyphens: auto;
         }
 
-        html.is-zh p {
-            text-align: justify;
+        html.is-zh .prose p { text-align: justify; text-indent: 2em; }
+
+        .prose strong { color: var(--ink); font-weight: 600; }
+
+        html.is-en .prose p:first-child::first-letter {
+            float: left;
+            font-size: 4.1em;
+            line-height: .82;
+            padding: 6px 10px 0 0;
+            color: var(--accent);
+            font-weight: 500;
         }
 
-        strong {
-            font-weight: 600;
-            color: var(--text-main);
+        /* ===== 章节 ===== */
+        section { margin-top: 96px; }
+
+        h2 {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            font-size: 1.7rem;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            margin: 0 0 32px;
         }
 
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            border-bottom: 1px dotted rgba(140, 21, 21, 0.4);
-            transition: all 0.15s ease;
+        html.is-zh h2 { font-family: var(--font-serif-zh); font-weight: 600; font-size: 1.45rem; letter-spacing: 0.06em; }
+
+        h2 .num {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--accent);
         }
 
-        a:hover {
-            border-bottom-style: solid;
-            border-bottom-color: var(--accent-color);
-            background-color: var(--accent-soft);
-        }
-
-        /* 核心哲学引言区块 */
-        .philosophy {
-            border-left: 2px solid var(--accent-color);
-            padding: 6px 0 6px 22px;
-            margin: 2.4rem 0;
-            font-size: 1.18rem;
-            color: var(--text-main);
-            font-family: var(--font-serif);
-            font-style: italic;
-            line-height: 1.75;
-        }
-
-        /* 列表样式 */
+        /* ===== 研究志趣列表 ===== */
         .interest-list {
             list-style: none;
-            padding: 0;
             margin: 0;
+            padding: 0;
+            counter-reset: item;
+            border-top: 1px solid var(--line);
         }
 
         .interest-list li {
-            position: relative;
-            padding-left: 22px;
-            margin-bottom: 12px;
-            color: var(--text-secondary);
+            counter-increment: item;
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 8px;
+            padding: 22px 0;
+            border-bottom: 1px solid var(--line);
+            color: var(--ink-2);
+            font-size: 0.98em;
+            line-height: 1.75;
         }
 
         .interest-list li::before {
-            content: "§";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
+            content: counter(item, upper-roman) ".";
             font-family: var(--font-serif);
-            font-size: 0.95rem;
+            font-style: italic;
+            font-size: 1.25rem;
+            line-height: 1.4;
+            color: var(--accent);
+            opacity: .75;
         }
 
-        /* 札记项目区 */
+        .interest-list strong {
+            display: block;
+            color: var(--ink);
+            font-weight: 600;
+            font-size: 1.08em;
+            margin-bottom: 2px;
+        }
+
+        .interest-list .note { font-size: 0.95em; }
+
+        /* ===== 项目卡片 ===== */
         .project-card {
-            margin-bottom: 2.6rem;
+            padding: 30px 32px;
+            margin-bottom: 18px;
+            border-radius: 16px;
+            background: var(--bg-elev);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-sm);
+            transition: transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease;
         }
 
-        .project-card:last-child {
-            margin-bottom: 0;
-        }
+        .project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--line-2); }
 
-        .project-header {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 8px;
+        .project-context {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            margin-bottom: 14px;
         }
 
         .project-title {
-            font-size: 1.18rem;
+            font-size: 1.32rem;
             font-weight: 600;
-            color: var(--text-main);
-            margin: 0;
-            font-family: var(--font-serif);
+            line-height: 1.38;
+            letter-spacing: -0.01em;
+            margin: 0 0 12px;
         }
 
-        .project-context {
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent-color);
-            border: 1px solid rgba(140, 21, 21, 0.25);
-            padding: 2px 8px;
-            border-radius: 3px;
-        }
+        html.is-zh .project-title { font-size: 1.12rem; line-height: 1.65; letter-spacing: 0.02em; }
 
         .project-desc {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-            line-height: 1.75;
+            margin: 0 0 18px;
+            font-size: 0.95em;
+            color: var(--ink-2);
         }
+
+        html.is-zh .project-desc { font-family: var(--font-sans); font-size: 0.94rem; line-height: 1.95; text-align: justify; }
+        html.is-en .project-desc { font-family: var(--font-sans); font-size: 0.93rem; line-height: 1.8; }
 
         .project-link {
-            font-size: 0.88rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
             font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
         }
 
-        /* 留白占位框 */
+        .project-link i { font-size: 0.7rem; transition: transform .2s var(--ease); }
+        .project-link:hover i { transform: translateX(4px); }
+
+        /* ===== 在研工作 ===== */
         .wip-box {
-            background-color: rgba(255, 255, 255, 0.4);
-            border: 1px solid var(--border-color);
-            padding: 28px 24px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 1.02rem;
-            font-style: italic;
-            font-family: var(--font-serif);
-            line-height: 1.75;
+            position: relative;
+            padding: 28px 32px 28px 60px;
+            border-radius: 16px;
+            border: 1px dashed var(--line-2);
+            background: repeating-linear-gradient(-45deg, transparent 0 10px, var(--accent-soft) 10px 11px);
+            color: var(--ink-2);
+            font-family: var(--font-sans);
+            font-size: 0.94rem;
+            line-height: 1.95;
         }
 
+        .wip-box .pulse {
+            position: absolute;
+            left: 30px;
+            top: 38px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--warm);
+        }
+
+        .wip-box .pulse::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: inherit;
+            animation: pulse 2s ease-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: .6; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        /* ===== 页脚 ===== */
         footer {
-            margin-top: 5rem;
-            padding-top: 1.8rem;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.85rem;
-            color: var(--text-muted);
+            margin-top: 120px;
+            padding: 32px 0 56px;
+            border-top: 1px solid var(--line);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            color: var(--ink-3);
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 40px 20px 64px;
-            }
+        footer a { text-decoration: none; color: var(--ink-3); transition: color .2s ease; }
+        footer a:hover { color: var(--accent); }
 
-            h1 {
-                font-size: 2.2rem;
-            }
+        /* ===== 渐显动画 ===== */
+        .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+        .js .reveal.in { opacity: 1; transform: none; }
 
-            footer {
-                flex-direction: column;
-                text-align: center;
-            }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .js .reveal { opacity: 1; transform: none; transition: none; }
+            .wip-box .pulse::after { animation: none; }
+        }
+
+        @media (max-width: 640px) {
+            body { font-size: 17px; }
+            html.is-zh body { font-size: 16px; }
+            .container, .top-inner { padding: 0 20px; }
+            .masthead { padding: 64px 0 44px; }
+            .contact-inline { flex-wrap: wrap; justify-content: center; }
+            .project-card { padding: 24px 22px; }
+            .wip-box { padding: 24px 22px 24px 48px; }
+            .wip-box .pulse { left: 22px; top: 34px; }
+            .interest-list li { grid-template-columns: 40px 1fr; }
+            footer { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 
 <body>
+    <div class="progress" id="progress"></div>
 
-    <div class="container">
-        <!-- 顶部返回与语言切换 -->
-        <div class="top-bar">
+    <!-- 顶部返回与语言切换 -->
+    <div class="top-bar" id="topBar">
+        <div class="top-inner">
             <a href="index.html" class="back-link">
-                <span class="lang-zh">← 返回学术主页 (Academic Profile)</span>
-                <span class="lang-en">← Back to Academic Profile</span>
+                <i class="fa-solid fa-arrow-left"></i>
+                <span class="zh">返回学术主页</span>
+                <span class="en">Back to Academic Profile</span>
             </a>
-            <button class="lang-toggle" onclick="toggleLanguage()">
-                <span class="lang-zh">EN</span>
-                <span class="lang-en">中文</span>
-            </button>
-        </div>
-
-        <div class="header">
-            <h1 class="lang-zh">孔维豪</h1>
-            <h1 class="lang-en">Kong Weihao</h1>
-
-            <div class="subtitle lang-zh">本科生 · 探索具身智能体的泛化认知模型</div>
-            <div class="subtitle lang-en">Undergraduate Researcher · Exploring Cognitive Models in Embodied Agents</div>
-
-            <div class="contact-inline">
-                <a href="mailto:elexs126@gmail.com">Email</a>
-                &nbsp;&middot;&nbsp;
-                <a href="https://github.com/elexs126" target="_blank" rel="noopener">GitHub</a>
+            <div class="controls">
+                <button class="icon-btn" onclick="toggleLanguage()" aria-label="Switch Language">
+                    <span class="zh">EN</span><span class="en">中文</span>
+                </button>
+                <button class="icon-btn theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                    <i class="fa-regular fa-moon"></i><i class="fa-regular fa-sun"></i>
+                </button>
             </div>
         </div>
+    </div>
 
-        <section id="about">
-            <!-- 核心理念区：统一中英文的思想深度 -->
-            <div class="philosophy lang-zh">
-                “我并不将全尺寸人形机器人视为机械工程的终点，而是将其视为通用认知模型与真实物理定律发生自然交互的理想载体。”
+    <main class="container">
+        <header class="masthead">
+            <div class="kicker reveal"><span class="zh">个人志趣 · Personal Vision</span><span class="en">Personal Vision · 个人志趣</span></div>
+            <h1 class="zh reveal">孔维豪</h1>
+            <h1 class="en reveal">Kong Weihao</h1>
+
+            <div class="subtitle zh reveal">本科生 · 探索具身智能体的泛化认知模型</div>
+            <div class="subtitle en reveal">Undergraduate Researcher · Exploring Cognitive Models in Embodied Agents</div>
+
+            <div class="contact-inline reveal">
+                <a href="mailto:elexs126@gmail.com"><i class="fa-regular fa-envelope"></i> Email</a>
+                <a href="https://github.com/elexs126" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
             </div>
-            <div class="philosophy lang-en">
-                “I view full-size humanoid robots not as the endpoint of mechanical engineering, but as the primary physical vessel for a generalized cognitive model to naturally interact with physical laws.”
+        </header>
+
+        <div class="ornament reveal"><span>✦</span></div>
+
+        <article id="about">
+            <!-- 核心理念 -->
+            <blockquote class="philosophy zh reveal" style="margin-left:0;margin-right:0;">
+                我并不将全尺寸人形机器人视为机械工程的终点，而是将其视为通用认知模型与真实物理定律发生自然交互的理想载体。
+            </blockquote>
+            <blockquote class="philosophy en reveal" style="margin-left:0;margin-right:0;">
+                I view full-size humanoid robots not as the endpoint of mechanical engineering, but as the primary physical vessel for a generalized cognitive model to naturally interact with physical laws.
+            </blockquote>
+
+            <!-- 个人陈述 -->
+            <div class="prose zh">
+                <p class="reveal">我的研究兴趣集中于智能系统的<strong>学习、表征与决策机制</strong>，尤其关注能够在真实物理环境中感知并行动的智能体。我希望理解，智能体如何通过与环境的持续交互形成对世界的认识，并将经验转化为可泛化的推理与行动能力。<strong>具身智能</strong>为探索这些问题提供了重要场景，<strong>人形机器人</strong>则是其中承载和检验认知架构的核心载体。</p>
+                <p class="reveal">在研究取向上，我关注能够<strong>解释系统行为、揭示现有方法局限，并推动架构改进</strong>的理论与机制。我重视问题的<strong>抽象层次</strong>：有效的解释需要保留决定行为差异的关键结构，并明确数学表述、学习算法与系统能力之间的联系。这也意味着，理论的价值既体现在形式上的清晰与一致，也体现在它能否带来新的预测、设计原则和可检验的改进。</p>
+                <p class="reveal">我倾向于围绕关键问题提出<strong>架构假设</strong>，通过必要的理论分析与系统实验检验其成立条件和适用边界。长期而言，我希望探索支撑智能体持续学习、适应环境与自主行动的<strong>通用机制</strong>，并在理论理解与智能系统设计之间建立更紧密的联系。</p>
             </div>
 
-            <!-- 个人陈述散文排版 -->
-            <div class="lang-zh">
-                <p>我的研究兴趣集中于智能系统的<strong>学习、表征与决策机制</strong>，尤其关注能够在真实物理环境中感知并行动的智能体。我希望理解，智能体如何通过与环境的持续交互形成对世界的认识，并将经验转化为可泛化的推理与行动能力。<strong>具身智能</strong>为探索这些问题提供了重要场景，<strong>人形机器人</strong>则是其中承载和检验认知架构的核心载体。</p>
-                <p>在研究取向上，我关注能够<strong>解释系统行为、揭示现有方法局限，并推动架构改进</strong>的理论与机制。我重视问题的<strong>抽象层次</strong>：有效的解释需要保留决定行为差异的关键结构，并明确数学表述、学习算法与系统能力之间的联系。这也意味着，理论的价值既体现在形式上的清晰与一致，也体现在它能否带来新的预测、设计原则和可检验的改进。</p>
-                <p>我倾向于围绕关键问题提出<strong>架构假设</strong>，通过必要的理论分析与系统实验检验其成立条件和适用边界。长期而言，我希望探索支撑智能体持续学习、适应环境与自主行动的<strong>通用机制</strong>，并在理论理解与智能系统设计之间建立更紧密的联系。</p>
+            <div class="prose en">
+                <p class="reveal">My research focuses on the <strong>learning, representation, and decision-making mechanisms</strong> of intelligent systems, with a particular emphasis on agents that perceive and act in physical environments. I seek to understand how agents construct representations through continuous environmental interaction and translate experience into generalizable reasoning and action capabilities. <strong>Embodied AI</strong> provides an essential foundation for exploring these questions, with <strong>humanoid robots</strong> serving as a primary testbed for evaluating cognitive architectures.</p>
+                <p class="reveal">In terms of research approach, I prioritize theories and mechanisms that <strong>explain system behavior, reveal methodological limitations, and drive architectural improvements</strong>. I place great value on the <strong>level of abstraction</strong>: effective explanations must retain critical structures governing behavioral divergence while formalizing the connections between mathematical principles, learning algorithms, and system capabilities—delivering formal clarity alongside verifiable predictions.</p>
+                <p class="reveal">I aim to formulate <strong>architectural hypotheses</strong> around core challenges, validating their operating assumptions and boundaries through theoretical analysis and systematic experimentation. Long term, I aspire to explore <strong>universal mechanisms</strong> supporting lifelong learning and autonomous adaptation, bridging theoretical insight and intelligent system design.</p>
             </div>
+        </article>
 
-            <div class="lang-en">
-                <p>My research focuses on the <strong>learning, representation, and decision-making mechanisms</strong> of intelligent systems, with a particular emphasis on agents that perceive and act in physical environments. I seek to understand how agents construct representations through continuous environmental interaction and translate experience into generalizable reasoning and action capabilities. <strong>Embodied AI</strong> provides an essential foundation for exploring these questions, with <strong>humanoid robots</strong> serving as a primary testbed for evaluating cognitive architectures.</p>
-                <p>In terms of research approach, I prioritize theories and mechanisms that <strong>explain system behavior, reveal methodological limitations, and drive architectural improvements</strong>. I place great value on the <strong>level of abstraction</strong>: effective explanations must retain critical structures governing behavioral divergence while formalizing the connections between mathematical principles, learning algorithms, and system capabilities—delivering formal clarity alongside verifiable predictions.</p>
-                <p>I aim to formulate <strong>architectural hypotheses</strong> around core challenges, validating their operating assumptions and boundaries through theoretical analysis and systematic experimentation. Long term, I aspire to explore <strong>universal mechanisms</strong> supporting lifelong learning and autonomous adaptation, bridging theoretical insight and intelligent system design.</p>
-            </div>
-        </section>
-
-        <!-- 研究兴趣 -->
+        <!-- 研究志趣 -->
         <section>
-            <h2 class="lang-zh">研究志趣</h2>
-            <h2 class="lang-en">Research Interests</h2>
-            <ul class="interest-list lang-zh">
-                <li><strong>具身智能与全身控制</strong> — 面向全尺寸人形机器人的世界模型规划与分层运动控制 (Whole-Body Control &amp; World Models)</li>
-                <li><strong>递归自我改进系统</strong> — 智能体在持续物理交互中的自主表征演化与策略迭代 (Recursive Self-Improvement / RSI)</li>
-                <li><strong>因果推断与物理表征学习</strong> — 跨越仿真与真实物理环境边界的不变性结构提取 (Causal &amp; World Representation Learning)</li>
+            <h2 class="reveal"><span class="num">01</span><span class="zh">研究志趣</span><span class="en">Research Interests</span></h2>
+            <ul class="interest-list zh">
+                <li class="reveal"><div><strong>具身智能与全身控制</strong><span class="note">面向全尺寸人形机器人的世界模型规划与分层运动控制 (Whole-Body Control &amp; World Models)</span></div></li>
+                <li class="reveal"><div><strong>递归自我改进系统</strong><span class="note">智能体在持续物理交互中的自主表征演化与策略迭代 (Recursive Self-Improvement / RSI)</span></div></li>
+                <li class="reveal"><div><strong>因果推断与物理表征学习</strong><span class="note">跨越仿真与真实物理环境边界的不变性结构提取 (Causal &amp; World Representation Learning)</span></div></li>
             </ul>
-            <ul class="interest-list lang-en">
-                <li><strong>Embodied AI &amp; Whole-Body Control</strong> — World model planning and hierarchical control for full-size humanoid robots</li>
-                <li><strong>Recursive Self-Improvement (RSI)</strong> — Autonomous representation evolution and policy iteration through continuous interaction</li>
-                <li><strong>Causal &amp; World Representation Learning</strong> — Extracting invariant physical structures across simulation and real-world dynamics</li>
+            <ul class="interest-list en">
+                <li class="reveal"><div><strong>Embodied AI &amp; Whole-Body Control</strong><span class="note">World model planning and hierarchical control for full-size humanoid robots</span></div></li>
+                <li class="reveal"><div><strong>Recursive Self-Improvement (RSI)</strong><span class="note">Autonomous representation evolution and policy iteration through continuous interaction</span></div></li>
+                <li class="reveal"><div><strong>Causal &amp; World Representation Learning</strong><span class="note">Extracting invariant physical structures across simulation and real-world dynamics</span></div></li>
             </ul>
         </section>
 
         <!-- 工程与复现札记 -->
         <section>
-            <h2 class="lang-zh">工程与复现札记</h2>
-            <h2 class="lang-en">Implementation Notes</h2>
+            <h2 class="reveal"><span class="num">02</span><span class="zh">工程与复现札记</span><span class="en">Implementation Notes</span></h2>
 
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title lang-zh">人形智能体动态行走策略的纯粹机制复现与剥离实验</h3>
-                    <h3 class="project-title lang-en">First-Principles Reproduction of Humanoid Locomotion via DRL</h3>
-                    <span class="project-context lang-zh">机制复现</span>
-                    <span class="project-context lang-en">Mechanism Analysis</span>
-                </div>
-
-                <p class="project-desc lang-zh">
-                    出于对底层强化学习动力学耦合机制的探究，使用 PyTorch 从零构建 PPO 训练管线。实验中刻意移除了繁杂而缺乏理论解释的工程试错（Ad-hoc Reward Shaping Tricks），独立验证了核心奖励结构在物理仿真中对步态对称性与能量效率的边界影响。
-                </p>
-                <p class="project-desc lang-en">
-                    Driven by curiosity about the underlying coupling between RL optimization and rigid-body dynamics, I built the PPO pipeline from scratch in PyTorch. By deliberately stripping away ad-hoc reward-shaping tricks, this work isolates and verifies the theoretical impact of core objective structures on gait symmetry and energetic efficiency.
-                </p>
-
+            <div class="project-card reveal">
+                <span class="project-context zh">机制复现</span>
+                <span class="project-context en">Mechanism Analysis</span>
+                <h3 class="project-title zh">人形智能体动态行走策略的纯粹机制复现与剥离实验</h3>
+                <h3 class="project-title en">First-Principles Reproduction of Humanoid Locomotion via DRL</h3>
+                <p class="project-desc zh">出于对底层强化学习动力学耦合机制的探究，使用 PyTorch 从零构建 PPO 训练管线。实验中刻意移除了繁杂而缺乏理论解释的工程试错（Ad-hoc Reward Shaping Tricks），独立验证了核心奖励结构在物理仿真中对步态对称性与能量效率的边界影响。</p>
+                <p class="project-desc en">Driven by curiosity about the underlying coupling between RL optimization and rigid-body dynamics, I built the PPO pipeline from scratch in PyTorch. By deliberately stripping away ad-hoc reward-shaping tricks, this work isolates and verifies the theoretical impact of core objective structures on gait symmetry and energetic efficiency.</p>
                 <a href="https://github.com/elexs126" class="project-link" target="_blank" rel="noopener">
-                    <span class="lang-zh">访问 GitHub 代码库 →</span>
-                    <span class="lang-en">Explore on GitHub →</span>
+                    <span class="zh">访问 GitHub 代码库</span><span class="en">Explore on GitHub</span>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
 
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title lang-zh">稀疏奖励环境下的跨序列注意力泛化探索</h3>
-                    <h3 class="project-title lang-en">Cross-Sequence Attention for Policy Generalization in Continuous Control</h3>
-                    <span class="project-context lang-zh">架构探索</span>
-                    <span class="project-context lang-en">Architectural Probe</span>
-                </div>
-
-                <p class="project-desc lang-zh">
-                    尝试将类 Transformer 的跨序列注意力机制引入在线强化学习范式中，用于捕捉长视距物理交互中的隐含动力学特征，并重点考察与记录了策略模型在未见物理测试环境中的零样本泛化表现。
-                </p>
-                <p class="project-desc lang-en">
-                    An experimental probe into integrating Transformer-style cross-sequence attention into on-policy RL paradigms—capturing implicit dynamical features over long horizons and evaluating zero-shot policy generalization across unseen physical environments.
-                </p>
-
+            <div class="project-card reveal">
+                <span class="project-context zh">架构探索</span>
+                <span class="project-context en">Architectural Probe</span>
+                <h3 class="project-title zh">稀疏奖励环境下的跨序列注意力泛化探索</h3>
+                <h3 class="project-title en">Cross-Sequence Attention for Policy Generalization in Continuous Control</h3>
+                <p class="project-desc zh">尝试将类 Transformer 的跨序列注意力机制引入在线强化学习范式中，用于捕捉长视距物理交互中的隐含动力学特征，并重点考察与记录了策略模型在未见物理测试环境中的零样本泛化表现。</p>
+                <p class="project-desc en">An experimental probe into integrating Transformer-style cross-sequence attention into on-policy RL paradigms—capturing implicit dynamical features over long horizons and evaluating zero-shot policy generalization across unseen physical environments.</p>
                 <a href="https://github.com/elexs126" class="project-link" target="_blank" rel="noopener">
-                    <span class="lang-zh">访问 GitHub 代码库 →</span>
-                    <span class="lang-en">Explore on GitHub →</span>
+                    <span class="zh">访问 GitHub 代码库</span><span class="en">Explore on GitHub</span>
+                    <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
         </section>
 
-        <!-- 论文与报告合并 -->
+        <!-- 在研工作 -->
         <section>
-            <h2 class="lang-zh">在研工作与学术手稿</h2>
-            <h2 class="lang-en">Manuscripts &amp; Ongoing Work</h2>
-            <div class="wip-box">
-                <div class="lang-zh">
-                    目前正围绕全尺寸人形机器人的分层世界模型与全身控制推进理论推演与仿真实验。<br>相关的技术报告与论文预印本将在阶段性验证完成后于此更新。
-                </div>
-                <div class="lang-en">
-                    Currently developing theoretical formulations and simulation benchmarks on hierarchical world models and whole-body control.<br>Preprints and technical monographs will be archived here upon completion.
-                </div>
+            <h2 class="reveal"><span class="num">03</span><span class="zh">在研工作与学术手稿</span><span class="en">Manuscripts &amp; Ongoing Work</span></h2>
+            <div class="wip-box reveal">
+                <span class="pulse"></span>
+                <div class="zh">目前正围绕全尺寸人形机器人的分层世界模型与全身控制推进理论推演与仿真实验。<br>相关的技术报告与论文预印本将在阶段性验证完成后于此更新。</div>
+                <div class="en">Currently developing theoretical formulations and simulation benchmarks on hierarchical world models and whole-body control.<br>Preprints and technical monographs will be archived here upon completion.</div>
             </div>
         </section>
 
         <footer>
             <div>&copy; 2026 孔维豪 (Kong Weihao)</div>
-            <div>
-                <a href="index.html" style="border-bottom: none; color: var(--text-muted);">
-                    <span class="lang-zh">返回主学术档案 →</span>
-                    <span class="lang-en">Return to Main Academic Profile →</span>
-                </a>
-            </div>
+            <a href="index.html">
+                <span class="zh">返回主学术档案 →</span>
+                <span class="en">Return to Main Academic Profile →</span>
+            </a>
         </footer>
-    </div>
+    </main>
 
     <script>
-        (function () {
-            const saved = localStorage.getItem('cv-lang');
-            const html = document.documentElement;
-            if (saved === 'en') {
-                html.classList.remove('is-zh');
-                html.classList.add('is-en');
-                html.setAttribute('lang', 'en');
-            } else if (saved === 'zh' || (navigator.language && navigator.language.startsWith('zh'))) {
-                html.classList.remove('is-en');
-                html.classList.add('is-zh');
-                html.setAttribute('lang', 'zh');
-            } else {
-                html.classList.remove('is-zh');
-                html.classList.add('is-en');
-                html.setAttribute('lang', 'en');
-            }
-        })();
-
         function toggleLanguage() {
-            const html = document.documentElement;
-            if (html.classList.contains('is-zh')) {
-                html.classList.replace('is-zh', 'is-en');
-                html.setAttribute('lang', 'en');
-                localStorage.setItem('cv-lang', 'en');
-            } else {
-                html.classList.replace('is-en', 'is-zh');
-                html.setAttribute('lang', 'zh');
-                localStorage.setItem('cv-lang', 'zh');
-            }
+            var d = document.documentElement;
+            var toZh = d.classList.contains('is-en');
+            d.classList.toggle('is-en', !toZh);
+            d.classList.toggle('is-zh', toZh);
+            d.lang = toZh ? 'zh-CN' : 'en';
+            localStorage.setItem('cv-lang', toZh ? 'zh' : 'en');
         }
-    </script>
 
+        function toggleTheme() {
+            var d = document.documentElement;
+            var t = d.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            d.setAttribute('data-theme', t);
+            localStorage.setItem('cv-theme', t);
+        }
+
+        (function () {
+            var bar = document.getElementById('progress');
+            var top = document.getElementById('topBar');
+            var onScroll = function () {
+                var h = document.documentElement.scrollHeight - window.innerHeight;
+                bar.style.transform = 'scaleX(' + (h > 0 ? window.scrollY / h : 0) + ')';
+                top.classList.toggle('scrolled', window.scrollY > 8);
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
+            onScroll();
+
+            if (!('IntersectionObserver' in window)) {
+                document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+                return;
+            }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+                });
+            }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+            document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+        })();
+    </script>
 </body>
 
 </html>
